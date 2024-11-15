@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Display</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form id="flexForm">
+        <div class="formulario">
+            <div class="titulo">
+                <h1>Flexbox Display</h1>
+            </div>
+
+            <div class="parrafoUno">
+                <label for="flex-direction">flex-direction:</label>
+                <select id="flexDirection">
+                    <option value="row">row</option>
+                    <option value="column">column</option>
+                </select>
+                <label for="justifyContent">Justify-Content:</label>
+                    <select id="justifyContent">
+                        <option value="flex-start">Flex-Start</option>
+                        <option value="flex-end">Flex-End</option>
+                        <option value="center">Center</option>
+                        <option value="space-around">Space-Around</option>
+                        <option value="space-between">Space-Between</option>
+                        <option value="space-evenly">Space-Around</option>
+                </select>
+                <label for="alignItems">Align-Items:</label>
+                    <select id="alignItems">
+                        <option value="stretch">Stretch</option>
+                        <option value="flex-start">Flex-Start</option>
+                        <option value="flex-end">Flex-End</option>
+                        <option value="center">Center</option>
+                        <option value="baseline">Baseline</option>
+                </select>
+                <label for="flexWrap">Flex-Wrap:</label>
+                <select id="flexWrap">
+                    <option value="nowrap">Nowrap</option>
+                    <option value="wrap">Wrap</option>
+                    <option value="wrap-reverse">Wrap-Reverse</option>
+                </select>
+            </div>
+
+            <div class="container" id="flexContainer">
+                <div id="item1" class="item">Div 1</div>
+                <div id="item2" class="item">Div 2</div>
+                <div id="item3" class="item">Div 3</div>
+            </div>
+
+            <div class="parrafoDos">
+                <h2>Controladores para Div 1</h2>
+                <label for="width1">Width:</label>
+                <input type="text" id="width1" placeholder="Ej. 100px">
+                <label for="height1">Height:</label>
+                <input type="text" id="height1" placeholder="Ej. 100px">
+                <label for="order1">Order:</label>
+                <input type="number" id="order1" value="0">
+
+                <h2>Controladores para Div 2</h2>
+                <label for="width2">Width:</label>
+                <input type="text" id="width2" placeholder="Ej. 100px">
+                <label for="height2">Height:</label>
+                <input type="text" id="height2" placeholder="Ej. 100px">
+                <label for="order2">Order:</label>
+                <input type="number" id="order2" value="0">
+
+                <h2>Controladores para Div 3</h2>
+                <label for="width3">Width:</label>
+                <input type="text" id="width3" placeholder="Ej. 100px">
+                <label for="height3">Height:</label>
+                <input type="text" id="height3" placeholder="Ej. 100px">
+                <label for="order3">Order:</label>
+                <input type="number" id="order3" value="0">
+            </div>
+<script>
+    const flexForm = document.getElementById('flexForm');
+    const flexContainer = document.getElementById('flexContainer');
+    const items = document.querySelectorAll('.item');
+
+    // Cambiar propiedades del contenedor
+    flexForm.addEventListener('change', function() {
+        const direction = document.getElementById('flexDirection').value;
+        const justify = document.getElementById('justifyContent').value;
+        const align = document.getElementById('alignItems').value;
+        const wrap = document.getElementById('flexWrap').value;
+
+        flexContainer.style.flexDirection = direction;
+        flexContainer.style.justifyContent = justify;
+        flexContainer.style.alignItems = align;
+        flexContainer.style.flexWrap = wrap;
+    });
+
+    // Función para aplicar cambios a cada div
+    function applyStyles() {
+        items.forEach((item, index) => {
+            const width = document.getElementById(`width${index + 1}`).value;
+            const height = document.getElementById(`height${index + 1}`).value;
+            const order = document.getElementById(`order${index + 1}`).value;
+
+            if (width) {
+                item.style.width = width;
+            }
+            if (height) {
+                item.style.height = height;
+            }
+            if (order) {
+                item.style.order = order;
+            }
+        });
+    }
+
+    // Añadir event listeners a los inputs de cada div
+    for (let i = 1; i <= items.length; i++) {
+        document.getElementById(`width${i}`).addEventListener('input', applyStyles);
+        document.getElementById(`height${i}`).addEventListener('input', applyStyles);
+        document.getElementById(`order${i}`).addEventListener('input', applyStyles);
+    }
+</script>
+
+</body>
+</html>

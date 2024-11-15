@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(176, 176, 249);
+    font-family: "Playwrite DE Grund", cursive;
+    color: rgb(0, 0, 187);
+}
+
+.formulario{
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    margin-top: 2px;
+    margin-left: 150px;
+    margin-right: 150px;
+    text-align: center;
+    font-family: "Playwrite DE Grund", cursive;
+    color: rgb(0, 0, 187);
+    font-size: 14px;
+}
+
+
+.item {
+  background-color: #a2f3f3;
+  margin: 7px;
+  justify-content: center;
+  transition: 0.2s;
+  padding: 0px 30px 0 30px;
+}
+.item p {
+  margin-top: 8px;
+}
+.container {
+  background-color: #e5f3f6;
+  display: flex;
+  width: 500px;
+  height: 175px;
+  border-radius: 5px;
+  margin-left: 300px;
+}
+.parrafoDos {text-align: center;}
